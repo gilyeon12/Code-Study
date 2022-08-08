@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h2>재고 현황</h2>
+      <label for="classnum">상품 검색</label>
+      <input type="text" name="" id="product" v-model.name="product" />
+      <h4>현재 상품 현황 : 당근, 수박, 참외, 토마토, 양파</h4>
+      <ul>
+        <li
+          v-for="(store, index) in store"
+          :key="store.name"
+          v-if="store.name === product"
+        >
+          상품 : {{store.name}}, 종류 : {{store.type}}, 재고 : {{store.count}}개
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    new Vue({
+      el: "#app",
+      data() {
+        return {
+          product: "",
+          store: [
+            {
+              name: "당근",
+              type: "채소",
+              count: 11,
+            },
+            {
+              name: "수박",
+              type: "과일",
+              count: 4,
+            },
+            {
+              name: "참외",
+              type: "과일",
+              count: 6,
+            },
+            {
+              name: "토마토",
+              type: "채소",
+              count: 15,
+            },
+            {
+              name: "양파",
+              type: "채소",
+              count: 7,
+            },
+          ],
+        };
+      },
+    });
+  </script>
+</html>
