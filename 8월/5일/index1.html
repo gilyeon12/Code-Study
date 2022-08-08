@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #btn {
+        width: 200px;
+        background-color: aqua;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h2>헬로월드</h2>
+      <button :[key]="btnId" @click="isShow=!isShow">서프라이즈 이벤트</button>
+      <div v-show="isShow">{{event}}</div>
+      <h2>롤러코스터</h2>
+      <label for="tall">키 : </label>
+      <input type="text" name="" id="" v-model="tall" />
+      <div v-if="tall < 150">탑승 불가</div>
+      <div v-else>탑승 가능</div>
+      <a :href="url">탑승하러가기</a>
+    </div>
+  </body>
+  <script>
+    new Vue({
+      el: "#app",
+      data() {
+        return {
+          event: "오후 5시 불꽃놀이",
+          tall: 0,
+          btnId: "btn",
+          key: "id",
+          isShow: false,
+          url: "http://www.naver.com",
+        };
+      },
+    });
+  </script>
+</html>
