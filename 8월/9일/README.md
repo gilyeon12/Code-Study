@@ -56,7 +56,7 @@
 
 ## [🦊index2 소연 문제 ]
 
-### [문제설명]
+### [문제 설명]
 
 1. index.html을 생성하라.
 2. 초기화면
@@ -69,7 +69,7 @@
 ![image](https://user-images.githubusercontent.com/109563072/183617405-a833e4f5-7c4f-4cc5-a81c-255bd9257a2e.png)
     
 
-### [문제 설명]
+### [기능 설명]
 
 💡 <참고 이미지1>
 
@@ -93,5 +93,11 @@
 ![image](https://user-images.githubusercontent.com/109563072/183617651-c12dc225-eb14-4b77-87cd-f9e83476dec1.png)
 
 ![image](https://user-images.githubusercontent.com/109563072/183617687-6df6fd33-7f96-4db3-9e63-0cf1bd643787.png)
+
+### [문제 포인트]
+
+- method
+- v-for
+
 
 
