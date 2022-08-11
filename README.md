@@ -8,7 +8,7 @@
 | 4     | :white_check_mark: | 230, 231    | [디렉티브(v-for), 총정리](8월/8일/README.md)                | 2022-08-08 |
 | 5     | :white_check_mark: | 232, 233    | [vue instance 개요, method](8월/9일/README.md)                | 2022-08-09 |
 | 6     | :white_check_mark: | 234, 235    | [filter, computed](8월/10일/README.md)                        | 2022-08-10 |
-| 7     | :white_check_mark: | 236, 237    | [computed vs watch](8월/11일/README.md)                        | 2022-08-11 |
+| 7     | :white_check_mark: | 236, 237    | [computed vs watch](8월/11/README.md)                        | 2022-08-11 |
 
 
 
