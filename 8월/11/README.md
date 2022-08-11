@@ -32,7 +32,7 @@
 
 <hr/>
 
-## [🦊index2 소연 문제(짤랑이 뱅크)]
+## [🦊index2 소연 문제(짤랑이 뱅크2)]
 
 ![image](https://user-images.githubusercontent.com/109563072/184122560-c715902b-6f2f-4132-b6dc-6c7558ddc109.png)
 
