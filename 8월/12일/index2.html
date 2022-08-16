@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h2>의류 관리 사이트</h2>
+      <form action="http://www.naver.com">
+        아이디:
+        <input type="text" name="" id="" v-model="id" v-on:keyup="idCheck" />
+        비밀번호:
+        <input
+          type="password"
+          name=""
+          id=""
+          v-model="pw"
+          v-on:keyup="pwCheck"
+        />
+        <button>확인</button>
+        <div>{{msg}}</div>
+      </form>
+      <!-- <label for="userid">아이디</label>
+      <input type="text" id="id" v-model="id" ref="id" v-on:keyup="idCheck" />
+      <label for="userpw">비밀번호</label>
+      <input type="password" id="pw" v-model="pw" ref="pw" @keyup="pwCheck" />
+      <button>등록</button>
+      <div>{{msg}}</div> -->
+      <h3>분류 : top, bottom, dress, shoes, acc</h3>
+      <label for="cloths">재고 검색 :</label>
+      <input type="text" name="" id="search" v-model="search" />
+      <ul>
+        <li
+          v-for="(cloth, index) in cloths"
+          :key="cloth.SN"
+          v-if="cloth.kind === search"
+        >
+          품목 {{cloth.kind}}의 재고는 {{cloth.stock}}개 남았습니다.
+        </li>
+      </ul>
+      <form action="http://www.google.com">
+        <button @click="btn1('안녕하세요 발주1')">발주1</button>
+        <button @click="btn2($event, '안녕하세요 발주2')">발주2</button>
+        <button @click.prevent="btn3">발주3</button>
+      </form>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data() {
+          return {
+            id: "",
+            pw: "",
+            msg: "",
+            search: "",
+            cloths: [
+              {
+                kind: "top",
+                SN: 0100,
+                stock: 20,
+              },
+              {
+                kind: "bottom",
+                SN: 0200,
+                stock: 11,
+              },
+              {
+                kind: "dress",
+                SN: 0300,
+                stock: 5,
+              },
+              {
+                kind: "shoes",
+                SN: 0400,
+                stock: 34,
+              },
+              {
+                kind: "acc",
+                SN: 0500,
+                stock: 13,
+              },
+            ],
+          };
+        },
+        methods: {
+          idCheck() {
+            if (this.id.length < 5 || this.id.length > 12) {
+              this.msg = "아이디는 5자리 이상 12자리 이하입니다.";
+            } else {
+              if (this.id === "admin") {
+                this.msg = `${this.id}은 사용하실 수 없습니다.`;
+              } else {
+                this.msg = `${this.id}는 사용하실 수 있습니다.`;
+              }
+            }
+          },
+          pwCheck() {
+            if (this.pw.length < 8 || this.pw.length > 20) {
+              this.msg = "비밀번호는 8자리 이상 20자리 이하입니다.";
+            } else {
+              if (this.pw === this.id) {
+                this.msg = `${this.pw}는 아이디와 동일합니다.`;
+              } else {
+                this.msg = `${this.pw}는 사용하실 수 있습니다.`;
+              }
+            }
+          },
+          btn1: function (msg) {
+            alert(msg + " 신청되었습니다.");
+          },
+          btn2: function (e, msg) {
+            if (e) e.preventDefault();
+            alert(msg + " 신청되었습니다.");
+            event.target.innerText = "발주 완료";
+          },
+          btn3: function () {
+            alert("안녕하세요 발주3 신청되었습니다.");
+            event.target.innerText = "발주 완료";
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
