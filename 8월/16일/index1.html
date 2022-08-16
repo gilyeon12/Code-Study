@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h2>저희 홈페이지에 오신 것을 환영합니다!</h2>
+      <div>
+        <label for="userid">아이디</label>
+        <input type="text" id="userid" v-model="userid" />
+        <button @click="ckID">중복 확인</button>
+      </div>
+      <div>
+        <label for="userpw">비밀번호</label>
+        <input type="password" id="userpw" v-model="userpw" />
+      </div>
+      <div>
+        <label for="userpw">비밀번호 확인</label>
+        <input type="password" id="repw" v-model="repw" />
+        <button @click="ckPW">비밀번호 확인</button>
+      </div>
+      <div>
+        <label for="userpw">이름</label>
+        <input type="text" id="username" v-model="username" />
+      </div>
+      <div>
+        <label for="phone">핸드폰 번호</label>
+        <input type="text" id="phone" v-model="phone" />
+      </div>
+      <div>
+        <label for="email">이메일</label>
+        <input type="text" id="email" v-model="email" />
+      </div>
+      <div>
+        성별
+        <input type="radio" id="male" value="남자" v-model="ckGender" />
+        <label for="male">남자</label>
+        <input type="radio" id="female" value="여자" v-model="ckGender" />
+        <label for="female">여자</label>
+      </div>
+      <div>
+        <input type="checkbox" id="ckSms" value="ckSms" v-model="select" />
+        <label for="ckSms">SMS 수신 동의</label>
+        <input type="checkbox" id="ckEmail" value="ckEmail" v-model="select" />
+        <label for="ckEmail">이메일 수신 동의</label>
+      </div>
+      <button @click="checkVal">회원 가입</button>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          userid: "",
+          ckid: false,
+          userpw: "",
+          repw: "",
+          ckpw: false,
+          username: "",
+          phone: "",
+          ckGender: "",
+          email: "",
+          select: [],
+        },
+        methods: {
+          checkVal() {
+            if (!this.userid) {
+              alert("아이디 입력!");
+              return;
+            } else if (!this.ckid) {
+              alert("아이디를 다시 확인해주세요.");
+              return;
+            } else if (!this.userpw) {
+              alert("비밀번호 입력!");
+              return;
+            } else if (!this.ckpw) {
+              alert("비밀번호를 다시 확인해주세요.");
+              return;
+            } else if (!this.username) {
+              alert("이름 입력!");
+              return;
+            } else if (!this.phone) {
+              alert("핸드폰 번호 입력!");
+              return;
+            } else if (!this.email) {
+              alert("이메일 입력!");
+              return;
+            } else if (!this.ckGender) {
+              alert("성별 체크!");
+              return;
+            }
+            this.register();
+          },
+          register() {
+            alert(this.username + "님 가입해주셔서 감사합니다.");
+          },
+          ckID() {
+            if (this.userid !== "admin") {
+              alert("아이디 중복 확인이 완료 되었습니다.");
+              this.ckid = true;
+              event.target.innerText = "확인 완료";
+            } else {
+              alert("중복된 아이디입니다.");
+            }
+          },
+          ckPW() {
+            if (this.userpw === this.repw) {
+              alert("비밀번호가 확인 되었습니다.");
+              this.ckpw = true;
+              event.target.innerText = "확인 완료";
+            } else {
+              alert("비밀번호가 다릅니다.");
+            }
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
