@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <div>
+        <h2>'괌'이 '좋아요'가 나오면 승리하는 게임
+      </div>
+      <child-comp
+        :country="country[parseInt(Math.random())]"
+        :msg="msg[parseInt(Math.random())]"
+      >
+      </child-comp>
+    </div>
+    <template id="ChildComp">
+      <div>
+        <h2>내가 가고 싶은 곳은 {{country}}: {{msg}}</h2>
+        <button @click="check">정답 확인</button>
+      </div>
+    </template>
+    <script>
+      Vue.component("childComp", {
+        props: {
+          country: {
+            type: String,
+            require: true,
+          },
+          msg: {
+            type: String,
+            require: true,
+          },
+        },
+        template: "#ChildComp",
+        methods: {
+          check() {
+            if (this.country === "괌" && this.msg === "좋아요") {
+              alert("정답");
+            } else {
+              alert("실패");
+            }
+          },
+        },
+      });
+      new Vue({
+        el: "#app",
+        data: {
+          country: ["괌", "인도", "일본", "미국", "스위스"],
+          msg: ["좋아요", "싫어요", "싫어요", "싫어요", "싫어요"],
+        },
+      });
+    </script>
+  </body>
+</html>

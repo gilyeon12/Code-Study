@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <h2>사자성어 퀴즈</h2>
+      <div>
+        '고생 하면서 부지런하고 꾸준하게 공부하는 자세'를 뜻하는 사자성어는?
+      </div>
+      <br />
+      <child-comp
+        v-for="(number, i) in numbers"
+        :key="i"
+        :number="number"
+        :result="result[i]"
+      >
+      </child-comp>
+    </div>
+    <template id="ChildComp">
+      <div><button @click="select">{{number}}</button>{{result}}</div>
+    </template>
+    <script>
+      Vue.component("childComp", {
+        props: {
+          number: String,
+          result: {
+            type: String,
+            require: true,
+          },
+        },
+        template: "#ChildComp",
+        methods: {
+          select() {
+            if (this.number === "c") {
+              alert("정답입니다!");
+            } else {
+              alert("틀렸습니다!");
+            }
+          },
+        },
+      });
+      new Vue({
+        el: "#app",
+        data: {
+          numbers: ["a", "b", "c", "d", "e"],
+          result: ["역지사지", "이심전심", "형설지공", "다다익선", "대기만성"],
+        },
+      });
+    </script>
+  </body>
+</html>
