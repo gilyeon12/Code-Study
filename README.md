@@ -10,6 +10,6 @@
 | 6     | :white_check_mark: | 234, 235    | [filter, computed](8월/10일/README.md)                        | 2022-08-10 |
 | 7     | :white_check_mark: | 236, 237    | [computed vs watch](8월/11/README.md)                        | 2022-08-11 |
 | 8     | :white_check_mark: | 238, 239    | [event, class binding](8월/12일/README.md)                        | 2022-08-12 |
-| 9     | :white_check_mark: | 240, 241    | [input binding, component](8월/16일/README.md)                        | 2022-08-16 |
-
+| 9     | :white_check_mark: | 240, 241    | [input binding](8월/16일/README.md)                        | 2022-08-16 |
+| 10     | :white_check_mark: | 241, 242   | [component, component간 통신](8월/18일/README.md)                        | 2022-08-18 |
 
